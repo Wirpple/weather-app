@@ -13,10 +13,17 @@
 - Docker
 
 Дополнительно:
+
 - Swagger
 - Тесты
 
 ## Пошаговое руководство
+
+### Общее
+
+Прокидываем в .env APP_KEY=
+
+Добавляем в .env DB_DATABASE=/var/www/database/database.sqlite
 
 ### 1. Сборка проекта в Docker
 
@@ -53,6 +60,7 @@ http://localhost:8000/api/cities
 ```
 
 Пример данных для добавления города:
+
 ```
 {
     "name": "Moscow",
