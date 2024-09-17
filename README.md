@@ -84,4 +84,11 @@ docker exec -it laravel_app bash
 php artisan test
 ```
 
+### Проверка очереди выполнения команд:
+
+```bash
+docker exec -it laravel_app bash
+php artisan schedule:list
+```
+
 Вот и всё!
