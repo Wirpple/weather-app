@@ -9,6 +9,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./:/var/www
+      - sqlite_data:/var/www/database
     networks:
       - laravel
 
@@ -37,6 +38,9 @@ services:
       - ./:/var/www
     networks:
       - laravel
+
+volumes:
+  sqlite_data:
 
 networks:
   laravel:
