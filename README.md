@@ -27,6 +27,14 @@ DB_DATABASE=/var/www/database/database.sqlite
 OPENWEATHER_API_KEY=
 WEATHER_UPDATE_SCHEDULE="30 * * * *"  # Обновление погоды каждые 30 минут
 ```
+------------------------------------------------------------------------------------------------
+APP_KEY — ключ приложения Laravel. Сгенерируйте его командой:
+```bash
+php artisan key:generate
+```
+DB_DATABASE — путь к базе данных SQLite. Для Docker используйте: /var/www/database/database.sqlite.
+OPENWEATHER_API_KEY — API ключ для сервиса OpenWeatherMap.
+WEATHER_UPDATE_SCHEDULE — расписание обновления данных о погоде. Установите "30 * * * *", чтобы обновления происходили каждые 30 минут.
 
 ### 1. Сборка проекта в Docker
 
