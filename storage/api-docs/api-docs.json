@@ -1,0 +1,284 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Documentation",
+        "description": "Это документация API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/": {},
+        "/api/cities": {
+            "get": {
+                "tags": [
+                    "Города"
+                ],
+                "summary": "Получение списка всех городов",
+                "operationId": "ada44ad22712f1486492fc6e6171b624",
+                "responses": {
+                    "200": {
+                        "description": "Список всех городов",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "name": {
+                                                "type": "string",
+                                                "example": "Moscow"
+                                            },
+                                            "latitude": {
+                                                "type": "number",
+                                                "format": "float",
+                                                "example": 55.7558
+                                            },
+                                            "longitude": {
+                                                "type": "number",
+                                                "format": "float",
+                                                "example": 37.6173
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Города"
+                ],
+                "summary": "Добавление нового города",
+                "operationId": "82653104a9039f871f02f3c40b7b498c",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Moscow"
+                                    },
+                                    "latitude": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 55.7558
+                                    },
+                                    "longitude": {
+                                        "type": "number",
+                                        "format": "float",
+                                        "example": 37.6173
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Город успешно добавлен",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Город успешно добавлен"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Ошибка валидации"
+                    }
+                }
+            }
+        },
+        "/api/weather/{city}": {
+            "get": {
+                "tags": [
+                    "Погода"
+                ],
+                "summary": "Получение текущей погоды для города",
+                "operationId": "e6394ef5ed22eeb6179761325487c55c",
+                "parameters": [
+                    {
+                        "name": "city",
+                        "in": "path",
+                        "description": "ID города",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Погода для указанного города",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "coord": {
+                                            "properties": {
+                                                "lon": {
+                                                    "type": "number",
+                                                    "example": 37.6182
+                                                },
+                                                "lat": {
+                                                    "type": "number",
+                                                    "example": 55.7557
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "weather": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer",
+                                                        "example": 800
+                                                    },
+                                                    "main": {
+                                                        "type": "string",
+                                                        "example": "Clear"
+                                                    },
+                                                    "description": {
+                                                        "type": "string",
+                                                        "example": "clear sky"
+                                                    },
+                                                    "icon": {
+                                                        "type": "string",
+                                                        "example": "01d"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "main": {
+                                            "properties": {
+                                                "temp": {
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 24.44
+                                                },
+                                                "feels_like": {
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 23.83
+                                                },
+                                                "temp_min": {
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 24.1
+                                                },
+                                                "temp_max": {
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 24.75
+                                                },
+                                                "pressure": {
+                                                    "type": "integer",
+                                                    "example": 1032
+                                                },
+                                                "humidity": {
+                                                    "type": "integer",
+                                                    "example": 34
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "visibility": {
+                                            "type": "integer",
+                                            "example": 10000
+                                        },
+                                        "wind": {
+                                            "properties": {
+                                                "speed": {
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 2.4
+                                                },
+                                                "deg": {
+                                                    "type": "integer",
+                                                    "example": 134
+                                                },
+                                                "gust": {
+                                                    "type": "number",
+                                                    "format": "float",
+                                                    "example": 3.51
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "clouds": {
+                                            "properties": {
+                                                "all": {
+                                                    "type": "integer",
+                                                    "example": 3
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "sys": {
+                                            "properties": {
+                                                "country": {
+                                                    "type": "string",
+                                                    "example": "RU"
+                                                },
+                                                "sunrise": {
+                                                    "type": "integer",
+                                                    "example": 1726542336
+                                                },
+                                                "sunset": {
+                                                    "type": "integer",
+                                                    "example": 1726587750
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "example": "Moscow Oblast"
+                                        },
+                                        "cod": {
+                                            "type": "integer",
+                                            "example": 200
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Город не найден"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Города",
+            "description": "Города"
+        },
+        {
+            "name": "Погода",
+            "description": "Погода"
+        }
+    ]
+}
