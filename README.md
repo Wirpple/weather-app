@@ -20,11 +20,13 @@
 
 ### Общее
 
-Добавляем в .env 
+Перед запуском проекта, необходимо добавить следующие переменные в файл `.env`:
+```env
 APP_KEY=
 DB_DATABASE=/var/www/database/database.sqlite
 OPENWEATHER_API_KEY=
-WEATHER_UPDATE_SCHEDULE="30 * * * *" // 30 минут
+WEATHER_UPDATE_SCHEDULE="30 * * * *"  # Обновление погоды каждые 30 минут
+```
 
 ### 1. Сборка проекта в Docker
 
