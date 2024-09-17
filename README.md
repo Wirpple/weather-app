@@ -20,9 +20,11 @@
 
 ### Общее
 
-Прокидываем в .env APP_KEY=
-
-Добавляем в .env DB_DATABASE=/var/www/database/database.sqlite
+Добавляем в .env 
+APP_KEY=
+DB_DATABASE=/var/www/database/database.sqlite
+OPENWEATHER_API_KEY=
+WEATHER_UPDATE_SCHEDULE="30 * * * *" // 30 минут
 
 ### 1. Сборка проекта в Docker
 
